@@ -19,16 +19,14 @@ print(pRock.read())
 print(pPaper.read())
 """
 
-actions =  ["Rock", "Paper", "Scissors"]
+actions =  ["rock", "paper", "scissors"]
 cpu = random.choice(actions)
+outcomes = {"rock": "rock", "rock": "paper", "rock": "scissors", 
+            "paper": "paper", "paper": "rock", "paper": "scissors",
+            "scissors": "rock", "scissors": "paper", "scissors": "scissors"}
 
 print("Welcome to this game of Rock Paper Scissors!")
-player = input("Please choose one of the following: 1) Rock, 2) Paper, 3) Scissors: ")
-try:
-    player = int(player)
-    while ((player < 1) or (player > 3)):    
-        player = int(input("Please enter a valid choice: "))
-except (ValueError):
-    while ValueError:
-        player = input("Please enter a valid choice: ")
-        player = int(player)
+player = input("Please choose one of the following: Rock, Paper, Scissors: ")
+while player not in actions:
+    player = input("Please enter a valid choice: ")
+player = player.lower()
