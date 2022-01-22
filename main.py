@@ -26,17 +26,16 @@ class bcolors:
     LOSE = '\033[91m' #RED
     RESET = '\033[0m' #RESET COLOR
 
+print("Welcome to this game of Rock Paper Scissors!")
 
 while True:
     scorePlayer = 0
     scoreCpu = 0
-    print("Welcome to this game of Rock Paper Scissors!")
-
-    rounds = input("How many rounds do you want to play?: ")
+    
     try:
-        rounds = int(rounds)
+        rounds = int(input("How many rounds do you want to play?: "))
     except ValueError or rounds < 1: 
-        rounds = input("Please enter a valid value: ")
+        continue
     
     for x in range(rounds):
         actions =  ["rock", "paper", "scissors"]
