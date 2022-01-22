@@ -18,15 +18,46 @@ print(pVS.read())
 print(pRock.read())
 print(pPaper.read())
 """
+scorePlayer = 0
+scoreCpu = 0
 
-actions =  ["rock", "paper", "scissors"]
-cpu = random.choice(actions)
-outcomes = {"rock": "rock", "rock": "paper", "rock": "scissors", 
-            "paper": "paper", "paper": "rock", "paper": "scissors",
-            "scissors": "rock", "scissors": "paper", "scissors": "scissors"}
+while True:
+    actions =  ["rock", "paper", "scissors"]
+    cpu = random.choice(actions)
 
-print("Welcome to this game of Rock Paper Scissors!")
-player = input("Please choose one of the following: Rock, Paper, Scissors: ")
-while player not in actions:
-    player = input("Please enter a valid choice: ")
-player = player.lower()
+    print("Welcome to this game of Rock Paper Scissors!")
+    player = input("Please choose one of the following: Rock, Paper, Scissors: ").lower()
+    while player not in actions:
+        player = input("Please enter a valid choice: ").lower()  
+    if (player == "rock"):
+        if (cpu == "rock"):
+            print("Draw!")
+        elif (cpu == "paper"):
+            print("You lose!")
+            scoreCpu += 1
+        elif (cpu == "scissors"):
+            print('You win!')
+            scorePlayer += 1
+    if (player == "paper"):
+        if (cpu == "rock"):
+            print("You win!")
+            scorePlayer += 1
+        elif (cpu == "paper"):
+            print("Draw!")
+        elif (cpu == "scissors"):
+            print('You lose!')
+            scoreCpu += 1
+    if (player == "Scissors"):
+        if (cpu == "rock"):
+            print("You lose!")
+            scoreCpu += 1
+        elif (cpu == "paper"):
+            print("You win!")
+            scorePlayer += 1
+        elif (cpu == "scissors"):
+            print('Draw!')
+
+    opt = ["yes", "no"]
+    retry = input("Would you like to play again?: ").lower()
+    while retry not in opt:
+        retry = input("Please enter a valid choice: ").lower()
