@@ -1,4 +1,4 @@
-import random
+import secrets
 from time import sleep
 import sys
 
@@ -9,16 +9,23 @@ for i in range(10):
     sleep(0.5)
 print("")
 """
-pScissors = open("scissors.txt", "r")
-pRock = open("rock.txt", "r")
-pPaper = open("paper.txt", "r")
-pVS = open("VS.txt", "r")
-"""
-print(pScissors.read())
-print(pVS.read())
-print(pRock.read())
-print(pPaper.read())
-"""
+
+# ASCII ART VARIABLES
+
+# Paper
+pPP = open("PP.txt", "r")
+pPR = open("PR.txt", "r")
+pPS = open("PS.txt", "r")
+
+# Rock
+pRP = open("RP.txt", "r")
+pRR = open("RR.txt", "r")
+pRS = open("RS.txt", "r")
+
+# Scissors
+pSP = open("SP.txt", "r")
+pSR = open("SR.txt", "r")
+pSS = open("SS.txt", "r")
 
 class bcolors:
     WIN = '\033[92m' #GREEN
@@ -39,36 +46,45 @@ while True:
     
     for x in range(rounds):
         actions =  ["rock", "paper", "scissors"]
-        cpu = random.choice(actions)
+        cpu = secrets.choice(actions)
         player = input("Please choose one of the following: Rock, Paper, Scissors: ").lower()
         while player not in actions:
             player = input("Please enter a valid choice: ").lower()
         if (player == "rock"):
             if (cpu == "rock"):
+                print(pRR.read())
                 print(bcolors.DRAW + "Draw!" + bcolors.RESET)
             elif (cpu == "paper"):
+                print(pRP.read())
                 print(bcolors.LOSE + "You lose!" + bcolors.RESET)
                 scoreCpu += 1
             elif (cpu == "scissors"):
+                print(pRS.read())
                 print(bcolors.WIN + "You win!" + bcolors.RESET)
                 scorePlayer += 1
         if (player == "paper"):
             if (cpu == "rock"):
+                print(pPR.read())
                 print(bcolors.WIN + "You win!" + bcolors.RESET)
                 scorePlayer += 1
             elif (cpu == "paper"):
+                print(pPP.read())
                 print(bcolors.DRAW + "Draw!" + bcolors.RESET)
             elif (cpu == "scissors"):
+                print(pPS.read())
                 print(bcolors.LOSE + "You lose!" + bcolors.RESET)
                 scoreCpu += 1
         if (player == "Scissors"):
             if (cpu == "rock"):
+                print(pSR.read())
                 print(bcolors.LOSE + "You lose!" + bcolors.RESET)
                 scoreCpu += 1
             elif (cpu == "paper"):
+                print(pSP.read())
                 print(bcolors.WIN + "You win!" + bcolors.RESET)
                 scorePlayer += 1
             elif (cpu == "scissors"):
+                print(pSS.read())
                 print(bcolors.DRAW + "Draw!" + bcolors.RESET)
         print("You:", scorePlayer, "v.s CPU:", scoreCpu)
 
