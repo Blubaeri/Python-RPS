@@ -27,10 +27,9 @@ class bcolors:
     RESET = '\033[0m' #RESET COLOR
 
 
-scorePlayer = 0
-scoreCpu = 0
-
 while True:
+    scorePlayer = 0
+    scoreCpu = 0
     print("Welcome to this game of Rock Paper Scissors!")
 
     rounds = input("How many rounds do you want to play?: ")
