@@ -74,7 +74,7 @@ while True:
                 print(pPS.read())
                 print(bcolors.LOSE + "You lose!" + bcolors.RESET)
                 scoreCpu += 1
-        if (player == "Scissors"):
+        if (player == "scissors"):
             if (cpu == "rock"):
                 print(pSR.read())
                 print(bcolors.LOSE + "You lose!" + bcolors.RESET)
